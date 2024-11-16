@@ -36,7 +36,7 @@ export default function HouseSelector(props) {
 
                 {
                     props.houses.map((currHouse, index) => (
-                        <li onClick={() => props.setHouse(currHouse)} class="m-auto p-2 overflow-y-clip text-center ml-0 w-full select-none rounded-full text-sm" style={getHouseSelectedStyle(currHouse)}>
+                        <li onClick={() => props.setHouse(currHouse)} className="m-auto p-2 overflow-y-clip text-center ml-0 w-full select-none rounded-full text-sm" style={getHouseSelectedStyle(currHouse)}>
                             {currHouse}
                         </li>
                     ))

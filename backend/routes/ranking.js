@@ -18,7 +18,6 @@ module.exports = function (io) {
             if (["21k", "22k", "23k", "24k", "Houses"].includes(room)) {
                 socket.join(room);
                 console.log(`User joined ${room}`);
-
                 if (buffer[room]) {
                     socket.emit("sendData", buffer[room]);
                 }

@@ -17,7 +17,7 @@ export default function BatchSelector(props) {
 
                 {
                     props.batches.map((currBatch, index) => (
-                        <li onClick={() => props.setBatch(currBatch)} class="m-auto p-2 text-center ml-0 w-full select-none rounded-full text-sm" style={getBatchSelectedStyle(currBatch)}>
+                        <li onClick={() => props.setBatch(currBatch)} className="m-auto p-2 text-center ml-0 w-full select-none rounded-full text-sm" style={getBatchSelectedStyle(currBatch)}>
                             Batch {currBatch}
                         </li>
                     ))
