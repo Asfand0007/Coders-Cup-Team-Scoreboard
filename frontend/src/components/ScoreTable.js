@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import Spinner from "./Spinner";
 
 
-const ScoreTable = ({ room }) => {
+const ScoreTable = ({ room, onDataUpdate }) => {
     const [data, setData] = useState('empty');
     const [fields, setFields] = useState(["Team Name", "Score"]);
 
@@ -20,22 +20,24 @@ const ScoreTable = ({ room }) => {
 
 
     useEffect(() => {
-        // const socket = io("https://coders-cup-scoreboard-2.onrender.com");
         const socket = io("http://localhost:4000/");
         socket.emit("joinRoom", room);
         socket.on("sendData", (rankingData) => {
             try {
-                rankingData = JSON.parse(rankingData)
-            } catch (error) {
-
-            }
-            setData(rankingData);
-            if (rankingData && rankingData.length > 0 && rankingData[0].problems) {
-                const newFields = ["", "Team Name", "Score"];
-                for (let i = 0; i < rankingData[0].problems.length; i++) {
-                    newFields.push(String.fromCharCode(65 + i));
+                const parsedData = JSON.parse(rankingData);
+                setData(parsedData);
+                if (onDataUpdate) {
+                    onDataUpdate(parsedData);
                 }
-                setFields(newFields);
+                if (parsedData && parsedData.length > 0 && parsedData[0].problems) {
+                    const newFields = ["", "Team Name", "Score"];
+                    for (let i = 0; i < parsedData[0].problems.length; i++) {
+                        newFields.push(String.fromCharCode(65 + i));
+                    }
+                    setFields(newFields);
+                }
+            } catch (error) {
+                console.error("Error parsing data:", error);
             }
         });
 
@@ -44,7 +46,7 @@ const ScoreTable = ({ room }) => {
             socket.off("sendData");
             socket.disconnect();
         };
-    }, [room]);
+    }, [room, onDataUpdate]);
 
     return (
         data !== 'empty' ?
