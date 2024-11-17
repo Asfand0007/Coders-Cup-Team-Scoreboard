@@ -4,8 +4,7 @@ export default function PageSwitcher({ currentView, onSwitch }) {
     return (
         <button
             onClick={onSwitch}
-            className="fixed sm:top-4 sm:right-4 bottom-4 right-4
-                       bg-[#f7b72e] hover:bg-[#f7b72e]/80
+            className="bg-[#f7b72e] hover:bg-[#f7b72e]/80
                        text-black text-xs font-semibold
                        h-8 px-3
                        rounded-full 
@@ -14,7 +13,9 @@ export default function PageSwitcher({ currentView, onSwitch }) {
                        shadow-sm hover:shadow-md
                        active:scale-95"
         >
-            {currentView === 'house' ? 'House Rankings' : 'Home'}
+            {currentView === 'house-rankings'
+                ? 'Back to Home'
+                : 'See House Rankings?'}
         </button>
     );
 } 
