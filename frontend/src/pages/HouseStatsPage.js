@@ -19,10 +19,10 @@ function HouseBatchScore({ house, batch, data }) {
 
     const getHouseColor = (house) => {
         switch (house) {
-            case 'Galacticos': return 'text-blue-500/90 vsm:text-xs text-[10px] font-bold';
-            case 'Red Devils': return 'text-red-500/90 vsm:text-xs text-[10px] font-bold';
-            case 'Gunners': return 'text-red-500/90 vsm:text-xs text-[10px] font-bold';
-            case 'Culers': return 'text-yellow-500/90 vsm:text-xs text-[10px] font-bold';
+            case 'Galacticos': return 'text-blue-500/90 font-bold';
+            case 'Red Devils': return 'text-red-500/90 font-bold';
+            case 'Gunners': return 'text-red-500/90 font-bold';
+            case 'Culers': return 'text-yellow-500/90 font-bold';
             default: return 'text-[#f7b72e]';
         }
     };
@@ -34,7 +34,7 @@ function HouseBatchScore({ house, batch, data }) {
             <span className={getHouseColor(house)}>Batch {batch.substring(0, 2)}</span>
             {
                 data && data.length > 0 ?
-                    <span className="text-white vsm:text-xs text-[10px] font-bold">
+                    <span className="text-white text-xl font-bold">
                         {data[house][batch]}
                     </span>
                     :
@@ -62,18 +62,18 @@ function HouseCard({ house, data }) {
     };
 
     return (
-        <div className={`bg-black/30 backdrop-blur-xl rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] border border-white/10 hover:border-white/20 [box-shadow:0_8px_32px_rgba(0,0,0,0.37)] bg-gradient-to-b ${getHouseColor(house)}`}>
+        <div className={`text-xl bg-black/30 w-full backdrop-blur-xl rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]  [box-shadow:0_8px_32px_rgba(0,0,0,0.37)] bg-gradient-to-b ${getHouseColor(house)}`}>
             <div className="p-4 border-b border-white/10">
                 <div className="flex justify-between items-center">
-                    <h2 className={"vsm:text-xl text-lg font-bold tracking-wider"}>{house}</h2>
+                    <h2 className={"font-bold tracking-wider"}>{house}</h2>
                     {
-                        data && data.length > 0 ? <p className="text-white vsm:text-2xl text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
+                        data && data.length > 0 ? <p className="text-white  text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
                             {calculateHouseTotal()}
                         </p> : <CardSpinner house={house} />
                     }
                 </div>
             </div>
-            <div className="p-4 space-y-2">
+            <div className="p-4 space-y-2 text-base">
                 {batches.map(batch => (
                     <HouseBatchScore
                         key={`${house}-${batch}`}
@@ -87,7 +87,7 @@ function HouseCard({ house, data }) {
     );
 }
 
-export default function HouseStatsPage() {
+export default function HouseStatsPage(props) {
     const [data, setData] = useState({});
 
     useEffect(() => {
@@ -109,25 +109,24 @@ export default function HouseStatsPage() {
 
     return (
         <>
-            <div className="w-full bg-cover min-h-screen grid place-items-center content-start 
-                           overflow-x-hidden font-bold pb-20"
+            <div className="w-full bg-cover min-h-screen grid
+                             place-items-center content-start 
+                             justify-center overflow-x-hidden 
+                             font-bold pb-20 "
                 style={{ "backgroundImage": `url(${BackgroundImage})` }}>
+
                 <TopBar />
 
-                <div className='mt-8' />
+                <div className='m-7' />
 
-                <div className="grid sm:grid-cols-2 grid-cols-1 gap-6 
+                <div className="grid sm:grid-cols-4 msm:grid-cols-2 vsm:grid-cols-1 gap-6 
                                w-[95%] sm:w-5/6 px-4 mx-auto
                                transition-all duration-300">
                     {houses.map(house => (
                         <HouseCard key={house} house={house} data={data} />
                     ))}
                 </div>
-            </div>
-            <div className="relative">
-                <div className="absolute bottom-0 right-0 mb-4 mr-4">
-                    <Credits />
-                </div>
+
             </div>
         </>
     );
