@@ -24,10 +24,11 @@ cd Coders-Cup-Team-Scoreboard
 There are three folders in this repository:
 - `/frontend` (React app)
 - `/backend` (Node.js + Express + MongoDB)
+- `/script` (Node.js + Puppeteer)
 
 ### 3. Install Dependencies
 
-You need to install dependencies for frontend and backend separately.
+You need to install dependencies for all, frontend, backend and the script.
 
 #### Frontend
 
@@ -43,9 +44,16 @@ cd backend
 npm install
 ```
 
+#### Script
+
+```bash
+cd script
+npm install
+```
+
 ### 4. Run the Application
 
-Start both the frontend and backend servers separately.
+Start both the frontend and backend servers separately, and then run the script to scrap data and update the ranking in the backend
 
 #### Run Frontend
 
@@ -61,9 +69,17 @@ cd backend
 npm run dev
 ```
 
+#### Run Script
+
+```bash
+cd backend
+npm run dev
+```
+
 ## Project Structure
 
 ```plaintext
 ├── frontend/      # Contains React code for the frontend
-└── backend/       # Contains Node.js and Express code for the backend
+├── backend/       # Contains Node.js and Express code for the backend
+└── script/        # Contains Node.js and Puppeteer code for the webscrappinggit init
 ```
