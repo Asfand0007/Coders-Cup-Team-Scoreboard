@@ -5,7 +5,8 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'vsm': '400px', // Add this custom screen size
+      'vsm': '500px', // Add this custom screen size
+      'sm': '600px',
       ...require('tailwindcss/defaultTheme').screens, // Keep the existing default screens
     },
     extend: {
