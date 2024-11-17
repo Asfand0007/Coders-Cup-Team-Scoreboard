@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PageSwitcher({ currentView, onSwitch }) {
     return (
-        <button 
+        <button
             onClick={onSwitch}
             className="fixed sm:top-4 sm:right-4 bottom-4 right-4
                        bg-[#f7b72e] hover:bg-[#f7b72e]/80
@@ -14,7 +14,7 @@ export default function PageSwitcher({ currentView, onSwitch }) {
                        shadow-sm hover:shadow-md
                        active:scale-95"
         >
-            {currentView === 'house' ? 'Stats' : 'House'}
+            {currentView === 'house' ? 'House Rankings' : 'Home'}
         </button>
     );
 } 
