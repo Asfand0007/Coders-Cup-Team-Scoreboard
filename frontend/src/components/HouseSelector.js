@@ -3,20 +3,20 @@ import React from 'react';
 export default function HouseSelector(props) {
 
     const getHouseSelectedStyle = (housePassed) => {
-        if (housePassed == props.selectedHouse) {
-            if (housePassed.toUpperCase() == "GALACTICOS") {
+        if (housePassed  ===  props.selectedHouse) {
+            if (housePassed.toUpperCase()  ===  "GALACTICOS") {
                 return { backgroundColor: "#087fd8", opacity: 0.8, };
             }
 
-            if (housePassed.toUpperCase() == "RED DEVILS") {
+            if (housePassed.toUpperCase()  ===  "RED DEVILS") {
                 return { backgroundColor: "#d81408", opacity: 0.8 };
             }
 
-            if (housePassed.toUpperCase() == "GUNNERS") {
+            if (housePassed.toUpperCase()  ===  "GUNNERS") {
                 return { backgroundColor: "#d81408", opacity: 0.8 };
             }
 
-            if (housePassed.toUpperCase() == "CULERS") {
+            if (housePassed.toUpperCase()  ===  "CULERS") {
                 return { backgroundColor: "#f2c500", opacity: 0.8 };
             }
 

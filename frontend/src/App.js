@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useState } from "react";
-import HouseViewPage from './pages/HouseView';
 import HouseStatsPage from './pages/HouseStatsPage';
 import PageSwitcher from './components/PageSwitcher';
 import Credits from './components/Credits';
@@ -31,11 +30,11 @@ function App() {
       <div className="relative">
 
 
-        <div class="fixed bottom-4 left-4">
+        <div className="fixed bottom-4 left-4">
           <Credits />
         </div>
 
-        <div class="fixed bottom-4 right-4">
+        <div className="fixed bottom-4 right-4">
           <PageSwitcher
             currentView={currentView}
             onSwitch={toggleView}

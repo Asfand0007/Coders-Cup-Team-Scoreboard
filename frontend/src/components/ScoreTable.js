@@ -24,14 +24,13 @@ const ScoreTable = ({ room, onDataUpdate }) => {
         socket.emit("joinRoom", room);
         socket.on("sendData", (rankingData) => {
             try {
-                const parsedData = JSON.parse(rankingData);
-                setData(parsedData);
+                setData(rankingData);
                 if (onDataUpdate) {
-                    onDataUpdate(parsedData);
+                    onDataUpdate(rankingData);
                 }
-                if (parsedData && parsedData.length > 0 && parsedData[0].problems) {
+                if (rankingData && rankingData.length > 0 && rankingData[0].problems) {
                     const newFields = ["", "Team Name", "Score"];
-                    for (let i = 0; i < parsedData[0].problems.length; i++) {
+                    for (let i = 0; i < rankingData[0].problems.length; i++) {
                         newFields.push(String.fromCharCode(65 + i));
                     }
                     setFields(newFields);

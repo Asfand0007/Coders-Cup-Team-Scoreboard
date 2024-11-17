@@ -1,6 +1,5 @@
 import BackgroundImage from '../assets/bg.png';
 import React, { useEffect, useState } from "react";
-import Credits from '../components/Credits';
 import TopBar from '../components/TopBar';
 import { io } from "socket.io-client";
 import CardSpinner from '../components/CardSpinner';
@@ -33,7 +32,7 @@ function HouseBatchScore({ house, batch, data }) {
                         border border-white/10 hover:border-white/20">
             <span className={getHouseColor(house)}>Batch {batch.substring(0, 2)}</span>
             {
-                data && data.length > 0 ?
+                data && Object.keys(data).length > 0 ?
                     <span className="text-white text-xl font-bold">
                         {data[house][batch]}
                     </span>
@@ -47,7 +46,7 @@ function HouseBatchScore({ house, batch, data }) {
 function HouseCard({ house, data }) {
     const calculateHouseTotal = () => {
         let total = 0;
-        batches.map((x) => { total += data[house][x] })
+        batches.forEach((batch) => { total += data[house][batch] })
         return total;
     };
 
@@ -60,14 +59,13 @@ function HouseCard({ house, data }) {
             default: return 'text-[#f7b72e]';
         }
     };
-
     return (
         <div className={`text-xl bg-black/30 w-full backdrop-blur-xl rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]  [box-shadow:0_8px_32px_rgba(0,0,0,0.37)] bg-gradient-to-b ${getHouseColor(house)}`}>
             <div className="p-4 border-b border-white/10">
                 <div className="flex justify-between items-center">
                     <h2 className={"font-bold tracking-wider"}>{house}</h2>
                     {
-                        data && data.length > 0 ? <p className="text-white  text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
+                        data && Object.keys(data).length ? <p className="text-white  text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
                             {calculateHouseTotal()}
                         </p> : <CardSpinner house={house} />
                     }
@@ -94,12 +92,7 @@ export default function HouseStatsPage(props) {
         const socket = io("http://localhost:4000/");
         socket.emit("joinRoom", "Houses");
         socket.on("sendData", (housesData) => {
-            try {
-                setData(housesData);
-                console.log("Data", data);
-            } catch (error) {
-                console.error("Error parsing data:", error);
-            }
+            setData(housesData);
         });
 
         return () => {

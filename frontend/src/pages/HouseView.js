@@ -1,10 +1,9 @@
 import BackgroundImage from '../assets/bg.png';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ScoreTable from '../components/ScoreTable';
 import TopBar from '../components/TopBar';
 import BatchSelector from '../components/BatchSelector';
 import HouseSelector from '../components/HouseSelector';
-import HouseTotal from '../components/HouseTotal';
 
 var batches = [
     "21k",
@@ -24,7 +23,7 @@ export default function HouseViewPage() {
     const [batch, setBatch] = useState(batches[0]);
     const [house, setHouse] = useState(houses[0]);
     const [data, setData] = useState([]);
-
+    
     return (
         <div className="w-full bg-cover min-h-screen grid place-items-center content-start overflow-x-hidden font-bold"
             style={{ "backgroundImage": `url(${BackgroundImage})` }}>

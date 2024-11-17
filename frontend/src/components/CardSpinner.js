@@ -2,16 +2,16 @@
 const CardSpinner = (props) => {
 
     const getSpinnerColor = (house) => {
-        if (house == "Red Devils") {
+        if (house === "Red Devils") {
             return { color: "red", opacity: 0.6 };
         }
-        else if (house == "Galacticos") {
+        else if (house === "Galacticos") {
             return { color: "blue", opacity: 0.6 };
         }
-        else if (house == "Gunners") {
+        else if (house === "Gunners") {
             return { color: "red", opacity: 0.6 };
         }
-        else if (house == "Culers") {
+        else if (house === "Culers") {
             return { color: "yellow", opacity: 0.6 };
         }
         else {

@@ -3,7 +3,7 @@ import React from 'react';
 export default function BatchSelector(props) {
 
     const getBatchSelectedStyle = (batchPassed) => {
-        if (batchPassed == props.selectedBatch) {
+        if (batchPassed === props.selectedBatch) {
             return { backgroundColor: "#f7b72e", opacity: 0.8 };
         }
         else {
@@ -17,7 +17,7 @@ export default function BatchSelector(props) {
 
                 {
                     props.batches.map((currBatch, index) => (
-                        <li onClick={() => props.setBatch(currBatch)} className="m-auto p-2 text-center ml-0 w-full select-none rounded-full text-sm" style={getBatchSelectedStyle(currBatch)}>
+                        <li key={currBatch} onClick={() => props.setBatch(currBatch)} className="m-auto p-2 text-center ml-0 w-full select-none rounded-full text-sm" style={getBatchSelectedStyle(currBatch)}>
                             Batch {currBatch}
                         </li>
                     ))
