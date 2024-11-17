@@ -7,33 +7,39 @@ import Credits from './components/Credits';
 import HomePage from './pages/Home';
 
 function App() {
-  const [currentView, setCurrentView] = useState('house');
+  const [currentView, setCurrentView] = useState('home');
 
   const toggleView = () => {
-    setCurrentView(currentView === 'house' ? 'stats' : 'house');
+    setCurrentView(currentView === 'house-rankings' ? 'home' : 'house-rankings');
   };
 
   const renderCurrentView = () => {
     switch (currentView) {
-      case 'house':
-        return <HouseStatsPage />;
-      case 'stats':
-        return <HomePage />;
+      case 'house-rankings':
+        return <HouseStatsPage currentView={currentView} onSwitch={toggleView} />;
+      case 'home':
+        return <HomePage currentView={currentView} onSwitch={toggleView} />;
       default:
-        return <HomePage />;
+        return <HomePage currentView={currentView} onSwitch={toggleView} />;
     }
   };
 
   return (
     <>
-      <PageSwitcher
-        currentView={currentView}
-        onSwitch={toggleView}
-      />
+
       {renderCurrentView()}
       <div className="relative">
-        <div className="absolute bottom-0 right-0 mb-4 mr-4">
+
+
+        <div class="fixed bottom-4 left-4">
           <Credits />
+        </div>
+
+        <div class="fixed bottom-4 right-4">
+          <PageSwitcher
+            currentView={currentView}
+            onSwitch={toggleView}
+          />
         </div>
       </div>
     </>
