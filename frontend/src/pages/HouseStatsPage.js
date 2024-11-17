@@ -16,18 +16,29 @@ const houses = [
 const batches = ["21k", "22k", "23k", "24k"];
 
 function HouseBatchScore({ house, batch, data }) {
+
+    const getHouseColor = (house) => {
+        switch (house) {
+            case 'Galacticos': return 'text-blue-500/90 vsm:text-xs text-[10px] font-bold';
+            case 'Red Devils': return 'text-red-500/90 vsm:text-xs text-[10px] font-bold';
+            case 'Gunners': return 'text-red-500/90 vsm:text-xs text-[10px] font-bold';
+            case 'Culers': return 'text-yellow-500/90 vsm:text-xs text-[10px] font-bold';
+            default: return 'text-[#f7b72e]';
+        }
+    };
+
     return (
         <div className="flex justify-between items-center py-2 px-4 bg-white/5 backdrop-blur-md rounded-xl 
                         transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] cursor-pointer
                         border border-white/10 hover:border-white/20">
-            <span className="text-[#f7b72e] vsm:text-xs text-[10px] font-bold">Batch {batch.substring(0, 2)}</span>
+            <span className={getHouseColor(house)}>Batch {batch.substring(0, 2)}</span>
             {
                 data && data.length > 0 ?
                     <span className="text-white vsm:text-xs text-[10px] font-bold">
-                        {/* {data[house][batch]} */}
+                        {data[house][batch]}
                     </span>
                     :
-                    <CardSpinner />
+                    <CardSpinner house={house} />
             }
         </div>
     );
@@ -44,7 +55,7 @@ function HouseCard({ house, data }) {
         switch (house) {
             case 'Galacticos': return 'text-[#087fd8] from-[#087fd8]/10 to-transparent';
             case 'Red Devils': return 'text-[#d81408] from-[#d81408]/10 to-transparent';
-            case 'Gunners': return 'text-[#d81408] from-[#f2c500]/10 to-transparent';
+            case 'Gunners': return 'text-[#d81408] from-[#d81408]/10 to-transparent';
             case 'Culers': return 'text-[#f2c500] from-[#f7b72e]/10 to-transparent';
             default: return 'text-[#f7b72e]';
         }
@@ -58,7 +69,7 @@ function HouseCard({ house, data }) {
                     {
                         data && data.length > 0 ? <p className="text-white vsm:text-2xl text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
                             {calculateHouseTotal()}
-                        </p> : <CardSpinner />
+                        </p> : <CardSpinner house={house} />
                     }
                 </div>
             </div>
