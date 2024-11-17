@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
-import Spinner from "./Spinner";
+import TableSpinner from "./TableSpinner";
 
 
 const ScoreTable = ({ room, onDataUpdate }) => {
@@ -97,7 +97,7 @@ const ScoreTable = ({ room, onDataUpdate }) => {
                 </div>
             :
             <div className="h-full w-full divide-y-2 divide-black/5 rounded-md backdrop-blur-md my-10 min-h-max overflow-x-auto overflow-y-auto [box-shadow:0_0_10px_rgba(0,_0,_0,_1)] justify-center items-center content-center flex ">
-                <Spinner />
+                <TableSpinner />
             </div>
     );
 };

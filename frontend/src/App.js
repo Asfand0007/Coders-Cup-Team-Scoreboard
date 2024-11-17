@@ -4,6 +4,7 @@ import HouseViewPage from './pages/HouseView';
 import HouseStatsPage from './pages/HouseStatsPage';
 import PageSwitcher from './components/PageSwitcher';
 import Credits from './components/Credits';
+import HomePage from './pages/Home';
 
 function App() {
   const [currentView, setCurrentView] = useState('house');
@@ -13,21 +14,21 @@ function App() {
   };
 
   const renderCurrentView = () => {
-    switch(currentView) {
+    switch (currentView) {
       case 'house':
-        return <HouseViewPage />;
-      case 'stats':
         return <HouseStatsPage />;
+      case 'stats':
+        return <HomePage />;
       default:
-        return <HouseViewPage />;
+        return <HomePage />;
     }
   };
 
   return (
     <>
-      <PageSwitcher 
-        currentView={currentView} 
-        onSwitch={toggleView} 
+      <PageSwitcher
+        currentView={currentView}
+        onSwitch={toggleView}
       />
       {renderCurrentView()}
       <div className="relative">

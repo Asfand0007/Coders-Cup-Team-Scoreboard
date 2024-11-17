@@ -1,5 +1,5 @@
 
-const Spinner = () => {
+const TableSpinner = () => {
     return (
         <div className="grid grid-cols-1 justify-center content-center place-items-center">
             <div
@@ -13,4 +13,4 @@ const Spinner = () => {
     );
 }
 
-export default Spinner;
+export default TableSpinner;
