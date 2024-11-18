@@ -21,10 +21,10 @@ function HouseBatchScore({ house, batch, data }) {
 
     const getHouseColor = (house) => {
         switch (house) {
-            case 'Galacticos': return 'text-blue-500/90 font-bold';
+            case 'Galacticos': return 'text-white/80 font-bold';
             case 'Red Devils': return 'text-red-500/90 font-bold';
-            case 'Gunners': return 'text-red-500/90 font-bold';
-            case 'Culers': return 'text-yellow-500/90 font-bold';
+            case 'Gunners': return 'text-[#e1bd70] font-bold';
+            case 'Culers': return 'text-[#e1bd70]/90 font-bold';
             default: return 'text-[#f7b72e]';
         }
     };
@@ -36,8 +36,8 @@ function HouseBatchScore({ house, batch, data }) {
             <span className={getHouseColor(house)}>Batch {batch.substring(0, 2)}</span>
             {
                 data && Object.keys(data).length > 0 ?
-                    <span className="text-white text-xl font-bold">
-                        {data[house][batch]}
+                    <span className="text-xl font-bold">
+                        <p className={getHouseColor(house)} >{data[house][batch]}</p>
                     </span>
                     :
                     <CardSpinner house={house} />
@@ -55,10 +55,10 @@ function HouseCard({ house, data }) {
 
     const getHouseColor = (house) => {
         switch (house) {
-            case 'Galacticos': return 'text-[#087fd8] from-[#087fd8]/10 to-transparent';
-            case 'Red Devils': return 'text-[#d81408] from-[#d81408]/10 to-transparent';
-            case 'Gunners': return 'text-[#d81408] from-[#d81408]/10 to-transparent';
-            case 'Culers': return 'text-[#f2c500] from-[#f7b72e]/10 to-transparent';
+            case 'Galacticos': return 'text-[#ffffff]/80 from-[#087fd8]/10 to-transparent';
+            case 'Red Devils': return 'text-[#d81408] from-[#000000]/30 to-transparent';
+            case 'Gunners': return 'text-[#e1bd70] from-[#df1408]/30 to-[#450603]/10';
+            case 'Culers': return 'text-[#e1bd70] from-[#f7b72e]/10 to-transparent';
             default: return 'text-[#f7b72e]';
         }
     };
@@ -79,13 +79,13 @@ function HouseCard({ house, data }) {
             <div className="p-4 border-b border-white/10">
                 <div className="flex justify-between items-center">
                     <div className='flex align-baseline'>
-                        <img src={getLogo(house)} alt="" className=" h-10" />
+                        <img src={getLogo(house)} alt="" className="h-10" />
                         <h2 className={"font-bold tracking-wider mt-2 ml-2"}>
                             {house}
                         </h2>
                     </div>
                     {
-                        data && Object.keys(data).length ? <p className="text-white  text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
+                        data && Object.keys(data).length ? <p className="text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
                             {calculateHouseTotal()}
                         </p> : <CardSpinner house={house} />
                     }

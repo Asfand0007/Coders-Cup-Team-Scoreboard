@@ -50,7 +50,7 @@ const ScoreTable = ({ room, onDataUpdate }) => {
     return (
         data !== 'empty' ?
             data && data.length > 0 ?
-                <div className="w-full h-full overflow-x-auto overflow-y-auto rounded-md [box-shadow:0_0_10px_rgba(0,_0,_0,_1)]">
+                <div className="w-full h-full overflow-x-auto overflow-y-auto rounded-md my-6 [box-shadow:0_0_10px_rgba(0,_0,_0,_1)]">
                     <table className="min-w-full divide-y-2 divide-black/5 rounded-md backdrop-blur-md">
                         <thead className="sticky top-0 bg-black/90 text-[rgba(171,126,12,1)] sm:text-xl vsm:text-base text-sm z-10 font-bold">
                             <tr>
@@ -91,7 +91,7 @@ const ScoreTable = ({ room, onDataUpdate }) => {
                         </tbody>
                     </table>
                 </div> :
-                <div className="min-w-full divide-y-2 divide-black/5 rounded-md backdrop-blur-md py-36 my-10 min-h-max w-5/6 overflow-x-auto overflow-y-auto [box-shadow:0_0_10px_rgba(0,_0,_0,_1)] justify-center items-end content-center flex ">
+                <div className="min-w-full divide-y-2 divide-black/5 rounded-md backdrop-blur-md py-36 my-10 min-h-max w-5/6 overflow-x-auto overflow-y-auto [box-shadow:0_0_10px_rgba(0,_0,_0,_1)] justify-center items-end content-center flex">
                     <h2 className="text-[rgba(171,126,12,1)] sm:text-3xl text-xl text-center px-3">No Record Available</h2>
                 </div>
             :

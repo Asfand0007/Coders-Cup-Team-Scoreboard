@@ -16,7 +16,7 @@ export default function HomePage() {
 
 
     return (
-        <div className="w-full bg-cover h-screen grid place-items-center content-start overflow-x-hidden overflow-y-scroll font-bold"
+        <div className="w-full bg-cover h-screen flex flex-col justify-start items-center  overflow-x-hidden overflow-y-scroll font-bold"
             style={{ "backgroundImage": `url(${BackgroundImage})` }}>
             <TopBar />
 
@@ -24,7 +24,7 @@ export default function HomePage() {
 
             <BatchSelector batches={batches} setBatch={setBatch} selectedBatch={batch} />
 
-            <div className='w-5/6' style={{ height: "70vh" }}>
+            <div className='w-5/6 max-h-[60%]'>
                 <ScoreTable room={batch} />
             </div>
 
