@@ -50,7 +50,7 @@ const ScoreTable = ({ room, onDataUpdate }) => {
     return (
         data !== 'empty' ?
             data && data.length > 0 ?
-                <div className="w-full h-full overflow-x-auto overflow-y-auto rounded-md my-6 [box-shadow:0_0_10px_rgba(0,_0,_0,_1)]">
+                <div className="w-full max-h-full overflow-x-auto overflow-y-auto rounded-md my-6 [box-shadow:0_0_10px_rgba(0,_0,_0,_1)]">
                     <table className="min-w-full divide-y-2 divide-black/5 rounded-md backdrop-blur-md">
                         <thead className="sticky top-0 bg-black/90 text-[rgba(171,126,12,1)] sm:text-xl vsm:text-base text-sm z-10 font-bold">
                             <tr>
