@@ -1,5 +1,3 @@
-const teamHouses = require("../assests/data");
-
 const getHouse = (teamName) => {
     const match = teamName.match(/\(([^)]+)\)/);
     if (!match) return null;
@@ -33,16 +31,16 @@ updateBuffer= (data, batch,score)=>{
         if(count>=16) break;
         count++
 
-        console.log(getHouse(team.teamName));
+        // console.log(getHouse(team.teamName));
         const house= getHouse(team.teamName);
         // const house= teamHouses[batch][team.teamName];
-        tempScore[house]+=Number(team.score);
+        if(house)
+            tempScore[house]+=Number(team.score);
     }
 
-    for(let key in tempScore)
+    for(let key in tempScore){
         score[key][batch]= tempScore[key];
-    
-    console.log(score);
+    }
     return {data, score};
 };
 
