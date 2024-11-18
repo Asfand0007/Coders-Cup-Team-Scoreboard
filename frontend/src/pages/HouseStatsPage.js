@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import TopBar from '../components/TopBar';
 import { io } from "socket.io-client";
 import CardSpinner from '../components/CardSpinner';
-
+import logo1 from "../assets/arsenal-logo.png"
+import logo2 from "../assets/barca-logo.png"
+import logo3 from "../assets/real-logo.png"
+import logo4 from "../assets/united-logo.png"
 
 const houses = [
     "Galacticos",
@@ -59,11 +62,28 @@ function HouseCard({ house, data }) {
             default: return 'text-[#f7b72e]';
         }
     };
+
+    const getLogo = (house) => {
+        switch (house) {
+            case 'Galacticos': return logo3;
+            case 'Red Devils': return logo4;
+            case 'Gunners': return logo1;
+            case 'Culers': return logo2;
+            default: ;
+        }
+    };
+
+
     return (
         <div className={`text-xl bg-black/30 w-full backdrop-blur-xl rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]  [box-shadow:0_8px_32px_rgba(0,0,0,0.37)] bg-gradient-to-b ${getHouseColor(house)}`}>
             <div className="p-4 border-b border-white/10">
                 <div className="flex justify-between items-center">
-                    <h2 className={"font-bold tracking-wider"}>{house}</h2>
+                    <div className='flex align-baseline'>
+                        <img src={getLogo(house)} alt="" className=" h-10" />
+                        <h2 className={"font-bold tracking-wider mt-2 ml-2"}>
+                            {house}
+                        </h2>
+                    </div>
                     {
                         data && Object.keys(data).length ? <p className="text-white  text-xl font-bold bg-white/5 px-3 py-0.5 rounded-xl transition-all duration-300 hover:bg-white/10">
                             {calculateHouseTotal()}
