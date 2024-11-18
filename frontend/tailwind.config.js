@@ -15,6 +15,9 @@ module.exports = {
         roboto: ['Roboto', 'sans-serif'],
         montserrat: ["Montserrat", 'sans-serif'],
       },
+      height: {
+        "half": "50vh",
+      },
     },
   },
   plugins: [],

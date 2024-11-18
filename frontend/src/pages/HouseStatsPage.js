@@ -133,14 +133,16 @@ export default function HouseStatsPage(props) {
                 <div className='m-7' />
 
                 <div className="grid sm:grid-cols-4 msm:grid-cols-2 vsm:grid-cols-1 gap-6 
-                               w-[95%] sm:w-5/6 px-4 mx-auto
-                               transition-all duration-300">
-                    {houses.map(house => (
-                        <HouseCard key={house} house={house} data={data} />
-                    ))}
+                               w-[95%] sm:w-5/6 px-4 mx-auto content-center
+                               transition-all duration-300 vsm:h-half">
+                    {
+                        houses.map(house => (
+                            <HouseCard key={house} house={house} data={data} />
+                        ))
+                    }
                 </div>
 
-            </div>
+            </div >
         </>
     );
 } 

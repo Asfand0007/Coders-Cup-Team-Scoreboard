@@ -24,7 +24,7 @@ export default function HomePage() {
 
             <BatchSelector batches={batches} setBatch={setBatch} selectedBatch={batch} />
 
-            <div className='w-5/6 h-96'>
+            <div className='w-5/6' style={{ height: "70vh" }}>
                 <ScoreTable room={batch} />
             </div>
 
