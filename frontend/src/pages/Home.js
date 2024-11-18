@@ -6,7 +6,9 @@ import BatchSelector from '../components/BatchSelector';
 
 var batches = [
     "21k",
+    "22k",
     "23k",
+    "24k",
 ]
 
 export default function HomePage() {
