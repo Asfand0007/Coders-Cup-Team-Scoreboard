@@ -9,10 +9,10 @@ import logo3 from "../assets/real-logo.png"
 import logo4 from "../assets/united-logo.png"
 
 const houses = [
-    "Galacticos",
-    "Red Devils",
     "Gunners",
     "Culers",
+    "Galacticos",
+    "Red Devils",
 ];
 
 const batches = ["21k", "22k", "23k", "24k"];
