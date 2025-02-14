@@ -1,6 +1,13 @@
 ﻿# Coders-Cup-Scoreboard
 This is a MERN-based system for the ranking Scoreboard of the Coder's Cup event with separate folders for frontend, backend and script.
 
+## Screenshots
+
+<img src = "https://github.com/user-attachments/assets/2f61cb64-1acc-41a8-946f-b1cc9c6ebc22" width=500>
+<img src = "https://github.com/user-attachments/assets/b1b6c0f2-9706-4af0-8c5a-75157336230b" width=500>
+<br><br>There was a football theme for some reason.
+
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
